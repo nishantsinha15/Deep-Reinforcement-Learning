@@ -2,6 +2,8 @@ import gym
 import numpy as np
 from PIL import Image
 import matplotlib.pyplot as plt
+import time
+
 
 def crop_center(img,cropx,cropy):
     y,x,c = img.shape
@@ -33,4 +35,29 @@ def create():
     # img1.save('Init.png')
     pre_process(obs)
 
-create()
+def main():
+    env = gym.make('MsPacman-v0')
+    score_db = []
+    time_db = []
+    for i_episode in range(20):
+        observation = env.reset()
+        total = 0
+        for t in range(10000000):
+            env.render()
+            # print(observation)
+            # time.sleep(0.1)
+            # print(env.action_space)
+            action = env.action_space.sample()
+            observation, reward, done, info = env.step(action)
+            total += reward
+            if done:
+                print("Episode finished after {} timesteps".format(t + 1))
+                print("Score = ", total)
+                score_db.append(total)
+                time_db.append(t+1)
+                break
+    env.env.close()
+    print("Average score = ", sum(score_db)/20)
+    print("Average survival time = ", sum(time_db)/20)
+
+main()
