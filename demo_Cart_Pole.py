@@ -4,12 +4,11 @@ import numpy as np
 from collections import deque
 from keras.models import Sequential
 from keras.layers import Dense
-from keras.optimizers import sgd, Adam
+from keras.optimizers import sgd
 
-EPISODES = 1000
+EPISODES = 10
 
-
-class DQNAgent:
+class DeepQAgent:
     def __init__(self, state_size, action_size):
         self.state_size = state_size
         self.action_size = action_size
@@ -26,7 +25,7 @@ class DQNAgent:
         model.add(Dense(24, input_dim=self.state_size, activation='relu'))
         model.add(Dense(24, activation='relu'))
         model.add(Dense(self.action_size, activation='linear'))
-        model.compile(loss='mse', optimizer=Adam(lr=self.learning_rate))
+        model.compile(loss='mse', optimizer=sgd(lr=self.learning_rate))
         return model
 
     def remember(self, state, action, reward, next_state, done):
@@ -63,7 +62,7 @@ if __name__ == "__main__":
     env._max_episode_steps = None
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
-    agent = DQNAgent(state_size, action_size)
+    agent = DeepQAgent(state_size, action_size)
     agent.load("cartpole-dqn.h5")
     done = False
     batch_size = 32

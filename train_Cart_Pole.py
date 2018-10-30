@@ -36,6 +36,8 @@ class DeepQAgent:
         if np.random.rand() <= self.epsilon:
             return random.randrange(self.action_size)
         act_values = self.model.predict(state)
+        print(act_values)
+        print("Focus = ",type(act_values), (len(act_values)), type(act_values[0][0]) )
         return np.argmax(act_values[0])  # returns action
 
     def replay(self, batch_size):
@@ -45,7 +47,7 @@ class DeepQAgent:
             if not done:
                 target = (reward + self.gamma *
                           np.amax(self.model.predict(next_state)[0]))
-            target_f = self.model.predict(state)  # What does this return?
+            target_f = self.model.predict(state)  # What does this return? Ans type = [[0.08708638 0.4333976 ]]
             target_f[0][action] = target
             self.model.fit(state, target_f, epochs=1, verbose=0)
         if self.epsilon > self.epsilon_min:
@@ -63,7 +65,7 @@ if __name__ == "__main__":
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
-    # agent.load("./save/cartpole-dqn.h5")
+    # agent.load("cartpole-dqn.h5")
     done = False
     batch_size = 32
 
@@ -78,6 +80,7 @@ if __name__ == "__main__":
             next_state = np.reshape(next_state, [1, state_size])
             agent.remember(state, action, reward, next_state, done)
             state = next_state
+            print(state.shape)
             if done:
                 print("episode: {}/{}, score: {}, e: {:.2}"
                       .format(e, EPISODES, time, agent.epsilon))
@@ -85,4 +88,4 @@ if __name__ == "__main__":
             if len(agent.memory) > batch_size:
                 agent.replay(batch_size)
         if e % 50 == 0:
-            agent.save("cartpole-dqn.h5")
+            agent.save("cartpole-dqn-testing.h5")
