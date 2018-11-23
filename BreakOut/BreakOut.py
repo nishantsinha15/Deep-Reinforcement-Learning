@@ -9,6 +9,11 @@ import matplotlib.pyplot as plt
 
 from keras import backend as K
 
+# todo save model
+# todo Initialize replay memory
+# todo remove deque
+# todo merge this pipeline with taking pixels as input
+
 
 '''
 Further, whenever we call load_model(remember, we needed it for the target network), 
@@ -27,8 +32,8 @@ def huber_loss(a, b, in_keras=True):
     return use_linear_term * linear_term + (1 - use_linear_term) * quadratic_term
 
 
-EPISODES = 1000
-file_name = 'breakout'
+EPISODES = 100000
+file_name = 'BreakOut/chart_model/breakout'
 
 
 def plot(data):
@@ -48,9 +53,9 @@ class DeepQAgent:
         self.memory = deque(maxlen=20000)
         self.gamma = 0.99
         self.epsilon = 1.0
-        self.epsilon_min = 0.01
+        self.epsilon_min = 0.1
         self.epsilon_decay = -(9/10000000)
-        self.learning_rate = 0.001
+        self.learning_rate = 0.00025
         self.model = self._build_model()
 
     def _build_model(self):
@@ -98,7 +103,7 @@ if __name__ == "__main__":
     agent = DeepQAgent(state_size, action_size)
     agent2 = DeepQAgent(state_size, action_size)
     c = 0
-    # agent.load("cartpole-dqn.h5")
+    # agent.load(file_name + "model.h5")
     done = False
     batch_size = 32
     recent_average = deque(maxlen=10)
@@ -120,21 +125,25 @@ if __name__ == "__main__":
             state = next_state
             # print(state.shape)
             if done:
-                print("episode: {}/{}, score: {}, e: {:.2}"
-                      .format(e, total_reward, time, agent.epsilon))
+                print("episode: {}/{}, score: {}, e: {:.2}, c = {}"
+                      .format(e, EPISODES, total_reward, agent.epsilon, c))
                 recent_average.append(total_reward)
                 av = sum(recent_average) / len(recent_average)
                 print(" Recent Average = ", av)
                 eVSs.append((e + 1, av))
                 break
-            if len(agent.memory) > batch_size:
+
+            if len(agent.memory) > batch_size and c%4 == 0:
                 agent.replay(batch_size, agent2)
 
-            if c % 500 == 0:
+            if c % 10000 == 0:
                 agent2.model.set_weights(agent.model.get_weights())
                 print("Updated the target model")
 
-            agent.epsilon = agent.epsilon_decay*c + 1
+        if agent.epsilon > agent.epsilon_min: agent.epsilon = agent.epsilon_decay*c + 1
 
         if e % 10 == 0:
             plot(eVSs)
+
+        if e % 50 == 0:
+            agent.save(file_name + "model.h5")
