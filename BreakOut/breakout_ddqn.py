@@ -18,7 +18,7 @@ from keras import backend as K
 
 
 EPISODES = 100000
-file_name = 'pacman_ddqn_v1'
+file_name = 'breakout_ddqn_v1'
 
 
 class StackedFrame:
@@ -163,7 +163,7 @@ class DeepQAgent:
 
 if __name__ == "__main__":
     eVSs = deque(maxlen=1000)
-    env = gym.make('MsPacman-v0')
+    env = gym.make('Breakout-v0')
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
@@ -222,8 +222,6 @@ if __name__ == "__main__":
 
         if agent.epsilon > agent.epsilon_min: agent.epsilon = agent.epsilon_decay * c + 1
 
-        if e % 10 == 0:
-            plot(eVSs)
-
         if e % 50 == 0:
             agent.save(file_name + "model.h5")
+            plot(eVSs)
