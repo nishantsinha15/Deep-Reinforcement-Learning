@@ -197,9 +197,9 @@ if __name__ == "__main__":
 
             if done:
                 if total_reward > max_score: max_score = total_reward
-                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}, computing_speed = {}"
+                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}, computing_speed = {}, time = {}"
                       .format(e, EPISODES, total_reward, agent.epsilon, c, max_score,
-                              (c - start_counter) / (time.time() - start_time)))
+                              (c - start_counter) / (time.time() - start_time), time.time() - start_time))
                 recent_average.append(total_reward)
                 av = sum(recent_average) / len(recent_average)
                 print(" Recent Average = ", av)
