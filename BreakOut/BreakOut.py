@@ -114,7 +114,7 @@ if __name__ == "__main__":
         total_reward = 0
         for time in range(500):
             c += 1
-            # env.render()
+            env.render()
             action = agent.act(state)
             next_state, reward, done, _ = env.step(action)
             total_reward += reward
@@ -141,9 +141,9 @@ if __name__ == "__main__":
                 print("Updated the target model")
 
         if agent.epsilon > agent.epsilon_min: agent.epsilon = agent.epsilon_decay*c + 1
-
-        if e % 10 == 0:
-            plot(eVSs)
-
-        if e % 50 == 0:
-            agent.save(file_name + "model.h5")
+        #
+        # if e % 10 == 0:
+        #     plot(eVSs)
+        #
+        # if e % 50 == 0:
+        #     agent.save(file_name + "model.h5")

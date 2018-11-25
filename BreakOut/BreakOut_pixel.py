@@ -77,7 +77,7 @@ class DeepQAgent:
         model.add(Conv2D(16, kernel_size=8, strides=4, activation='relu', input_shape = (105, 80, 1)))
         model.add(Conv2D(32, kernel_size=4, strides = 2, activation='relu'))
         model.add(Flatten())
-        model.add(Dense(256, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(256,  activation='relu'))
         model.add(Dense(self.action_size))
         model.compile(loss=huber_loss, optimizer=Adam(lr=self.learning_rate), metrics=['mae'])
         return model
@@ -161,8 +161,8 @@ if __name__ == "__main__":
 
         if agent.epsilon > agent.epsilon_min: agent.epsilon = agent.epsilon_decay * c + 1
 
-        if e % 10 == 0:
-            plot(eVSs)
-
-        if e % 50 == 0:
-            agent.save(file_name + "model.h5")
+        # if e % 10 == 0:
+        #     plot(eVSs)
+        #
+        # if e % 50 == 0:
+        #     agent.save(file_name + "model.h5")

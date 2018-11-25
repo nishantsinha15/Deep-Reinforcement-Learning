@@ -8,6 +8,7 @@ from keras.optimizers import sgd, Adam
 import matplotlib.pyplot as plt
 from keras.layers import Dense, Conv2D, Flatten
 from keras import backend as K
+import time
 
 # done save model
 # todo Initialize replay memory
@@ -88,7 +89,7 @@ class DeepQAgent:
         model.add(Conv2D(16, kernel_size=8, strides=4, activation='relu', input_shape=(105, 80, 4)))
         model.add(Conv2D(32, kernel_size=4, strides=2, activation='relu'))
         model.add(Flatten())
-        model.add(Dense(256, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(256, activation='relu'))
         model.add(Dense(self.action_size))
         model.compile(loss=self.huber_loss, optimizer=Adam(lr=self.learning_rate), metrics=['mae'])
         return model
@@ -145,7 +146,9 @@ if __name__ == "__main__":
         # state = preprocess(state).reshape((105, 80, 1)) / 255.0
         # state = np.expand_dims(state, axis=0)
         total_reward = 0
-        for time in range(500):
+        t = time.time()
+        prev_c = c
+        for iter in range(500):
             c += 1
             # env.render()
             action = agent.act(curr_state)
@@ -163,8 +166,8 @@ if __name__ == "__main__":
             state = next_state
 
             if done:
-                print("episode: {}/{}, score: {}, e: {:.2}, c = {}"
-                      .format(e, EPISODES, total_reward, agent.epsilon, c))
+                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, speed = {}"
+                      .format(e, EPISODES, total_reward, agent.epsilon, c, (c - prev_c)/(time.time()-t)))
                 recent_average.append(total_reward)
                 av = sum(recent_average) / len(recent_average)
                 print(" Recent Average = ", av)
