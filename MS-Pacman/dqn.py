@@ -18,31 +18,30 @@ from keras import backend as K
 
 
 EPISODES = 100000
-file_name = 'breakout_stacked'
+file_name = 'pacman_dqn_v1'
 
 
 class StackedFrame:
     def __init__(self, images):
         self.images = list(images)
 
-    def to_grayscale(self, img):
-        return np.mean(img, axis=2).astype(np.uint8)
-
-    def downsample(self, img):
-        return img[::2, ::2]
-
-    def preprocess(self, img):
-        return self.to_grayscale(self.downsample(img))
-
     def get_input_layer(self):
-        ret = [self.preprocess(self.images[0]).reshape((105, 80, 1)) / 255.0,
-                           self.preprocess(self.images[1]).reshape((105, 80, 1)) / 255.0,
-                           self.preprocess(self.images[2]).reshape((105, 80, 1)) / 255.0,
-                        self.preprocess(self.images[3]).reshape((105, 80, 1)) / 255.0]
+        ret = [(self.images[0]).reshape((105, 80, 1)) / 255.0,
+                           (self.images[1]).reshape((105, 80, 1)) / 255.0,
+                           (self.images[2]).reshape((105, 80, 1)) / 255.0,
+                        (self.images[3]).reshape((105, 80, 1)) / 255.0]
         ret = np.asarray(ret).reshape(105,80,4)
         ret = np.expand_dims(ret, axis=0)
         return ret
 
+def to_grayscale(img):
+    return np.mean(img, axis=2).astype(np.uint8)
+
+def downsample(img):
+    return img[::2, ::2]
+
+def preprocess(img):
+    return to_grayscale(downsample(img))
 
 def plot(data):
     x = []
@@ -85,10 +84,11 @@ class DeepQAgent:
 
     def _build_model(self):
         model = Sequential()
-        model.add(Conv2D(16, kernel_size=8, strides=4, activation='relu', input_shape=(105, 80, 4)))
-        model.add(Conv2D(32, kernel_size=4, strides=2, activation='relu'))
+        model.add(Conv2D(32, kernel_size=8, strides=4, activation='relu', input_shape=(105, 80, 4)))
+        model.add(Conv2D(64, kernel_size=4, strides=2, activation='relu'))
+        model.add(Conv2D(64, kernel_size=3, strides=1, activation='relu'))
         model.add(Flatten())
-        model.add(Dense(256, input_dim=self.state_size, activation='relu'))
+        model.add(Dense(512, input_dim=self.state_size, activation='relu'))
         model.add(Dense(self.action_size))
         model.compile(loss=self.huber_loss, optimizer=Adam(lr=self.learning_rate), metrics=['mae'])
         return model
@@ -99,22 +99,42 @@ class DeepQAgent:
     def act(self, state):
         if np.random.rand() <= self.epsilon:
             return random.randrange(self.action_size)
-        act_values = self.model.predict(state.get_input_layer())
+        if random.random() < 0.5:
+            act_values = self.model.predict(state.get_input_layer())
+        else:
+            act_values = self.target_model.predict(state.get_input_layer())
         # print(act_values)
         # print("Focus = ",type(act_values), (len(act_values)), type(act_values[0][0]) )
         return np.argmax(act_values[0])  # returns action
 
     def replay(self, batch_size):
         minibatch = random.sample(self.memory, batch_size)
+        coin_toss = random.random() < 0.5
+        if coin_toss:
+            m1 = self.model
+            m2 = self.target_model
+        else:
+            m1 = self.target_model
+            m2 = self.model
         for state, action, reward, next_state, done in minibatch:
             target = reward
-            temp = self.target_model.predict(next_state.get_input_layer())
             if not done:
-                target = (reward + self.gamma *
-                          np.amax(self.target_model.predict(next_state.get_input_layer())[0]))
-            target_f = self.model.predict(state.get_input_layer())  # What does this return? Ans type = [[0.08708638 0.4333976 ]]
+                best_action = -1
+                val = -100000000
+                temp_val = m1.predict(next_state.get_input_layer())[0]
+                for a in range(self.action_size):
+                    if temp_val[a] > val:
+                        val = temp_val[a]
+                        best_action = a
+                '''check understading '''
+                target = (reward + self.gamma * m2.predict(next_state.get_input_layer())[0][
+                    best_action])  # Double Q learning
+            target_f = m1.predict(state.get_input_layer())
             target_f[0][action] = target
-            self.model.fit(state.get_input_layer(), target_f, epochs=1, verbose=0)
+            '''check understading '''
+            m1.fit(state.get_input_layer(), target_f, epochs=1, verbose=0)
+            if coin_toss: self.model = m1
+            else: self.target_model = m1
 
     def load(self, name):
         self.model.load_weights(name)
@@ -125,7 +145,7 @@ class DeepQAgent:
 
 if __name__ == "__main__":
     eVSs = deque(maxlen=1000)
-    env = gym.make('Breakout-v0')
+    env = gym.make('MsPacman-v4')
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
@@ -134,9 +154,10 @@ if __name__ == "__main__":
     done = False
     batch_size = 32
     recent_average = deque(maxlen=10)
-
+    max_score = 0
     for e in range(EPISODES):
         state = env.reset()
+        state = preprocess(state)
         mystate = deque(maxlen=4)
         mystate.append(state)
         prev_state = StackedFrame([state for i in range(4)])
@@ -145,15 +166,16 @@ if __name__ == "__main__":
         # state = preprocess(state).reshape((105, 80, 1)) / 255.0
         # state = np.expand_dims(state, axis=0)
         total_reward = 0
-        for time in range(500):
+        for time in range(500000):
             c += 1
             # env.render()
             action = agent.act(curr_state)
+            # action = env.action_space.sample()
             next_state, reward, done, _ = env.step(action)
+            next_state = preprocess(next_state)
             total_reward += reward
             reward = reward if not done else -1
-            # next_state = preprocess(next_state).reshape((105, 80, 1)) / 255.0
-            # next_state = np.expand_dims(next_state, axis=0)
+            print(reward)
             mystate.append(next_state)
             if len(mystate) == 4:
                 curr_state = StackedFrame(mystate)
@@ -163,15 +185,17 @@ if __name__ == "__main__":
             state = next_state
 
             if done:
-                print("episode: {}/{}, score: {}, e: {:.2}, c = {}"
-                      .format(e, EPISODES, total_reward, agent.epsilon, c))
+                print(total_reward, time)
+                if total_reward > max_score: max_score = total_reward
+                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}"
+                      .format(e, EPISODES, total_reward, agent.epsilon, c, max_score))
                 recent_average.append(total_reward)
                 av = sum(recent_average) / len(recent_average)
                 print(" Recent Average = ", av)
                 eVSs.append((e + 1, av))
                 break
 
-            if len(agent.memory) > batch_size and c % 4 == 0:
+            if len(agent.memory) > batch_size:
                 agent.replay(batch_size)
 
             if c % 5000 == 0:
@@ -179,9 +203,9 @@ if __name__ == "__main__":
                 print("Updated the target model")
 
         if agent.epsilon > agent.epsilon_min: agent.epsilon = agent.epsilon_decay * c + 1
-        # 
-        # if e % 10 == 0:
-        #     plot(eVSs)
-        # 
-        # if e % 50 == 0:
-        #     agent.save(file_name + "model.h5")
+
+        if e % 10 == 0:
+            plot(eVSs)
+
+        if e % 50 == 0:
+            agent.save(file_name + "model.h5")
