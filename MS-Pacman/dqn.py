@@ -177,7 +177,6 @@ if __name__ == "__main__":
         start_counter = c
         for iter in range(500000):
             c += 1
-            start_time = time.time()
             # env.render()
             if len(mystate) == 4:
                 action = agent.act(curr_state)
@@ -210,7 +209,6 @@ if __name__ == "__main__":
             if len(agent.memory) > batch_size:
                 agent.replay(batch_size)
 
-            print("Took ",time.time() - start_time)
         if agent.epsilon > agent.epsilon_min:
             agent.epsilon = agent.epsilon_decay * c + 1
 
