@@ -126,7 +126,7 @@ def test(env, agent, len = 10):
             # env.render()
 
             # Select the action
-            action = agent.act(curr_state, testing = True)
+            action = agent.act(np.asarray([curr_state]), testing=True)
 
             # Take next action and Observe
             ob, reward, done, _ = env.step(action)
@@ -136,7 +136,7 @@ def test(env, agent, len = 10):
             curr_state = next_state
             if done:
                 print("Test: {}/{}, score: {}, took = {}"
-                      .format(e, EPISODES, total_reward, time.time() - start_time))
+                      .format(e, len, total_reward, time.time() - start_time))
                 average += total_reward
                 break
     average /= len
@@ -169,7 +169,7 @@ for e in range(EPISODES):
         # env.render()
 
         # Select the action
-        action = agent.act(curr_state)
+        action = agent.act(np.asarray([curr_state]))
 
         # Take next action and Observe
         ob, reward, done, _ = env.step(action)
