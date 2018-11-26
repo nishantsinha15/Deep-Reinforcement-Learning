@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 from keras.layers import Dense, Conv2D, Flatten
 from keras import backend as K, optimizers
 import Util
+import pickle
+
 
 class DeepQAgent:
     def __init__(self, state_size, action_size):
@@ -41,8 +43,8 @@ class DeepQAgent:
     def remember(self, state, action, reward, next_state, done):
         self.memory.add((state, action, reward, next_state, done))
 
-    def act(self, state):
-        if np.random.rand() <= self.epsilon:
+    def act(self, state, testing = False):
+        if np.random.rand() <= self.epsilon and not testing:
             return random.randrange(self.action_size)
         if random.random() < 0.5:
             act_values = self.model.predict(state)
@@ -112,6 +114,35 @@ class MyQueue:
     def __len__(self):
         return len(self.q)
 
+
+def test(env, agent, len = 10):
+    average = 0
+    for e in range(len):
+        ob = Util.preprocess(env.reset())
+        curr_state = np.array([ob, ob, ob, ob])
+        total_reward = 0
+        start_time = time.time()
+        for iter in range(1000000):
+            env.render()
+
+            # Select the action
+            action = agent.act(curr_state, testing = True)
+
+            # Take next action and Observe
+            ob, reward, done, _ = env.step(action)
+            ob = Util.preprocess(ob)
+            next_state = Util.get_next_state(curr_state, ob)
+            total_reward += reward
+            curr_state = next_state
+            if done:
+                print("Test: {}/{}, score: {}, took = {}"
+                      .format(e, EPISODES, total_reward, time.time() - start_time))
+                average += total_reward
+                break
+    average /= len
+    print("Average test Score = ", average)
+    return average
+
 file_name = 'pacman'
 
 EPISODES = 1000000
@@ -125,6 +156,7 @@ frame_count = 0
 done = False
 batch_size = 32
 recent_average = deque(maxlen=10)
+test_scores = []
 for e in range(EPISODES):
     ob = Util.preprocess(env.reset())
     curr_state = np.array([ob, ob, ob, ob])
@@ -133,7 +165,7 @@ for e in range(EPISODES):
     start_counter = frame_count
     for iter in range(1000000):
         frame_count += 1
-        # print(frame_count)
+        print(frame_count)
         # env.render()
 
         # Select the action
@@ -145,14 +177,20 @@ for e in range(EPISODES):
         next_state = Util.get_next_state(curr_state, ob)
         total_reward += reward
 
-        total_reward += reward
         reward = np.clip(reward, -1, 1)
         agent.remember(np.asarray([curr_state]), action, reward, np.asarray([curr_state]), done)
 
         # Training the agent
         if len(agent.memory) > batch_size:
             agent.replay(batch_size)
-            # todo test here
+
+        # Testing agent
+        if frame_count % 10000:
+            test_scores.append(test(env, agent))
+            with open('test_results.pkl', 'wb') as f:
+                pickle.dump(test_scores)
+
+        curr_state = next_state
 
         if done:
             print("episode: {}/{}, score: {}, e: {:.2}, c = {}, computing_speed = {}, took = {}"
@@ -164,8 +202,8 @@ for e in range(EPISODES):
             eVSs.append((e + 1, av))
             break
 
-    if agent.epsilon > agent.epsilon_min:
-        agent.epsilon = agent.epsilon_decay * frame_count + 1
+        if agent.epsilon > agent.epsilon_min:
+            agent.epsilon = agent.epsilon_decay * frame_count + 1
 
     if e % 10 == 0:
         print("Saving model")
