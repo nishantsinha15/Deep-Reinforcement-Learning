@@ -123,7 +123,7 @@ def test(env, agent, len = 10):
         total_reward = 0
         start_time = time.time()
         for iter in range(1000000):
-            env.render()
+            # env.render()
 
             # Select the action
             action = agent.act(curr_state, testing = True)
@@ -165,7 +165,7 @@ for e in range(EPISODES):
     start_counter = frame_count
     for iter in range(1000000):
         frame_count += 1
-        print(frame_count)
+        if frame_count % 100 == 0: print(frame_count)
         # env.render()
 
         # Select the action
