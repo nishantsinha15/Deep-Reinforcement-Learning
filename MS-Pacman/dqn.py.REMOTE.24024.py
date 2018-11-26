@@ -17,7 +17,7 @@ from keras import backend as K
 # done merge this pipeline with taking pixels as input
 # done create a state class?
 # done keep the target network as a part of the model class
-# todo change recent average to 20 games
+
 
 EPISODES = 100000
 file_name = 'pacman_ddqn_v1'
@@ -56,7 +56,7 @@ def plot(data):
         x.append(i)
         y.append(j)
     plt.plot(x, y)
-    plt.savefig(file_name + 'round_2.png')
+    plt.savefig(file_name + '.png')
 
 
 class DeepQAgent:
@@ -65,7 +65,7 @@ class DeepQAgent:
         self.action_size = action_size
         self.memory = deque(maxlen=20000)
         self.gamma = 0.99
-        self.epsilon = 0.94
+        self.epsilon = 1.0
         self.epsilon_min = 0.1
         self.epsilon_decay = -(9 / 10000000)
         self.learning_rate = 0.00025
@@ -160,8 +160,8 @@ if __name__ == "__main__":
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
-    c = 83973
-    agent.load(file_name + "model.h5")
+    c = 0
+    # agent.load(file_name + "model.h5")
     done = False
     batch_size = 32
     recent_average = deque(maxlen=10)
@@ -175,7 +175,7 @@ if __name__ == "__main__":
         total_reward = 0
         start_time = time.time()
         start_counter = c
-        for iter in range(101,500000):
+        for iter in range(500000):
             c += 1
             # env.render()
             if len(mystate) == 4:
@@ -197,7 +197,7 @@ if __name__ == "__main__":
 
             if done:
                 if total_reward > max_score: max_score = total_reward
-                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}, computing_speed = {}, took = {}"
+                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}, computing_speed = {}, time = {}"
                       .format(e, EPISODES, total_reward, agent.epsilon, c, max_score,
                               (c - start_counter) / (time.time() - start_time), time.time() - start_time))
                 recent_average.append(total_reward)
@@ -215,5 +215,5 @@ if __name__ == "__main__":
         if e % 10 == 0:
             plot(eVSs)
 
-        if e % 10 == 0:
+        if e % 50 == 0:
             agent.save(file_name + "model.h5")

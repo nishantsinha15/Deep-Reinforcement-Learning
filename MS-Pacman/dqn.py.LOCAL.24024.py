@@ -17,7 +17,7 @@ from keras import backend as K
 # done merge this pipeline with taking pixels as input
 # done create a state class?
 # done keep the target network as a part of the model class
-# todo change recent average to 20 games
+
 
 EPISODES = 100000
 file_name = 'pacman_ddqn_v1'
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
-    c = 83973
+    c = 0
     agent.load(file_name + "model.h5")
     done = False
     batch_size = 32

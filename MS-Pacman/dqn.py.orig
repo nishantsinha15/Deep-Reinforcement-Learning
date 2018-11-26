@@ -17,7 +17,7 @@ from keras import backend as K
 # done merge this pipeline with taking pixels as input
 # done create a state class?
 # done keep the target network as a part of the model class
-# todo change recent average to 20 games
+
 
 EPISODES = 100000
 file_name = 'pacman_ddqn_v1'
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     state_size = env.observation_space.shape[0]
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
-    c = 83973
+    c = 0
     agent.load(file_name + "model.h5")
     done = False
     batch_size = 32
@@ -197,7 +197,11 @@ if __name__ == "__main__":
 
             if done:
                 if total_reward > max_score: max_score = total_reward
+<<<<<<< HEAD
                 print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}, computing_speed = {}, took = {}"
+=======
+                print("episode: {}/{}, score: {}, e: {:.2}, c = {}, max_score = {}, computing_speed = {}, time = {}"
+>>>>>>> 6b7f3e03acc0db86bfa022fd41f8a5a5d088d6c0
                       .format(e, EPISODES, total_reward, agent.epsilon, c, max_score,
                               (c - start_counter) / (time.time() - start_time), time.time() - start_time))
                 recent_average.append(total_reward)
