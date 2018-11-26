@@ -18,6 +18,7 @@ from keras import backend as K
 # done create a state class?
 # done keep the target network as a part of the model class
 # todo change recent average to 20 games
+# todo load and save work on self.model only. Not on the target model
 
 EPISODES = 100000
 file_name = 'pacman_ddqn_v1'
@@ -148,10 +149,12 @@ class DeepQAgent:
                 self.target_model.fit(state.get_input_layer(), target_f, epochs=1, verbose=0)
 
     def load(self, name):
-        self.model.load_weights(name)
+        self.model.load_weights(name + "behaviour")
+        self.target_model.load_weights(name + "target")
 
     def save(self, name):
-        self.model.save_weights(name)
+        self.model.save_weights(name + "behaviour")
+        self.target_model.save_weights(name + "target")
 
 
 if __name__ == "__main__":
@@ -161,7 +164,7 @@ if __name__ == "__main__":
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
     c = 83973
-    agent.load(file_name + "model.h5")
+    # agent.load(file_name)
     done = False
     batch_size = 32
     recent_average = deque(maxlen=10)
@@ -178,7 +181,7 @@ if __name__ == "__main__":
         for iter in range(101,500000):
             c += 1
             # env.render()
-            if len(mystate) == 4:
+            if len(mystate) == 5:
                 action = agent.act(curr_state)
             else:
                 action = env.action_space.sample()
@@ -189,8 +192,8 @@ if __name__ == "__main__":
             mystate.append(next_state)
             if len(mystate) == 4:
                 curr_state = StackedFrame(mystate)
-                if prev_state is not None:
-                    agent.remember(prev_state, action, reward, curr_state, done)
+                # if prev_state is not None:
+                #     agent.remember(prev_state, action, reward, curr_state, done)
                 prev_state = curr_state
 
             state = next_state
@@ -205,9 +208,9 @@ if __name__ == "__main__":
                 print(" Recent Average = ", av)
                 eVSs.append((e + 1, av))
                 break
-
-            if len(agent.memory) > batch_size:
-                agent.replay(batch_size)
+            #
+            # if len(agent.memory) > batch_size:
+            #     agent.replay(batch_size)
 
         if agent.epsilon > agent.epsilon_min:
             agent.epsilon = agent.epsilon_decay * c + 1
@@ -216,4 +219,4 @@ if __name__ == "__main__":
             plot(eVSs)
 
         if e % 10 == 0:
-            agent.save(file_name + "model.h5")
+            agent.save(file_name)
