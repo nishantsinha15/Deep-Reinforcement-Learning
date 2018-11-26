@@ -115,7 +115,7 @@ class MyQueue:
         return len(self.q)
 
 
-def test(env, agent, len = 10):
+def test(env, agent, len = 1):
     average = 0
     for e in range(len):
         ob = Util.preprocess(env.reset())
@@ -151,7 +151,7 @@ env = gym.make('MsPacmanDeterministic-v4')
 state_size = env.observation_space.shape[0]
 action_size = env.action_space.n
 agent = DeepQAgent(state_size, action_size)
-frame_count = 0
+frame_count = -1
 # agent.load(file_name)
 done = False
 batch_size = 32
@@ -165,7 +165,8 @@ for e in range(EPISODES):
     start_counter = frame_count
     for iter in range(1000000):
         frame_count += 1
-        if frame_count % 100 == 0: print(frame_count)
+        if frame_count % 100 == 0:
+            print(frame_count)
         # env.render()
 
         # Select the action
@@ -185,10 +186,11 @@ for e in range(EPISODES):
             agent.replay(batch_size)
 
         # Testing agent
-        if frame_count % 10000:
+        if frame_count % 10000 == 0:
             test_scores.append(test(env, agent))
             with open('test_results.pkl', 'wb') as f:
-                pickle.dump(test_scores)
+                pickle.dump(test_scores, f)
+                break
 
         curr_state = next_state
 
