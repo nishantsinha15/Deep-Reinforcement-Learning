@@ -115,7 +115,7 @@ class MyQueue:
         return len(self.q)
 
 
-def test(env, agent, len = 1):
+def test(env, agent, len = 10):
     average = 0
     for e in range(len):
         ob = Util.preprocess(env.reset())
