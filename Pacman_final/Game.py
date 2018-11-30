@@ -151,13 +151,13 @@ env = gym.make('MsPacmanDeterministic-v4')
 state_size = env.observation_space.shape[0]
 action_size = env.action_space.n
 agent = DeepQAgent(state_size, action_size)
-frame_count = -1
-# agent.load(file_name)
+frame_count = 322800
+agent.load(file_name)
 done = False
 batch_size = 32
 recent_average = deque(maxlen=10)
 test_scores = []
-for e in range(EPISODES):
+for e in range(670, EPISODES):
     ob = Util.preprocess(env.reset())
     curr_state = np.array([ob, ob, ob, ob])
     total_reward = 0
