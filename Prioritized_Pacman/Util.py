@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from keras.layers import Dense, Conv2D, Flatten
 from keras import backend as K
 
-file_name = 'Pacman.png'
+file_name = 'prioritized_pacman'
 
 
 def to_grayscale(img):

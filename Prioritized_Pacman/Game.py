@@ -18,10 +18,14 @@ class DeepQAgent:
         self.state_size = state_size
         self.action_size = action_size
         self.memory = MyQueue(maxlen=20000)
+        self.priority_prob = deque(maxlen=20000)
         self.gamma = 0.99
         self.epsilon = 1.0
         self.epsilon_min = 0.1
         self.epsilon_decay = -(9 / 10000000)
+        self.probability_bias = 0.0001 # Tune this
+        self.alpha = 0.6 # Importance of priority
+        self.beta = 0.4
         self.learning_rate = 0.00025
         input_shape = (4, 110, 84)
         self.model = self._build_model(input_shape)
@@ -42,6 +46,24 @@ class DeepQAgent:
 
     def remember(self, state, action, reward, next_state, done):
         self.memory.add((state, action, reward, next_state, done))
+        self.update_probability(state, action, reward, next_state, done)
+
+    def update_probability(self, state, action ,reward, next_state, done):
+        target = reward
+        if not done:
+            best_action = 0
+            val = -100000000
+            temp_val = self.model.predict(next_state)[0]
+            for a in range(self.action_size):
+                if temp_val[a] > val:
+                    val = temp_val[a]
+                    best_action = a
+            target = (reward + self.gamma * self.target_model.predict(next_state)[0][
+                best_action])  # Double Q learning
+        td_error = abs(target - self.model.predict(state)[0][action])
+        priority = td_error + self.probability_bias
+        priority = priority ** self.alpha
+        self.priority_prob.append(priority)
 
     def act(self, state, testing = False):
         if np.random.rand() <= self.epsilon and not testing:
@@ -53,7 +75,10 @@ class DeepQAgent:
         return np.argmax(act_values[0])  # returns action
 
     def replay(self, batch_size):
-        minibatch = self.memory.sample(batch_size)
+        # minibatch = self.memory.sample(batch_size)
+        minibatch = np.random.choice([i for i in range(len(self.memory))], size = batch_size,
+                                     p = np.asarray(self.priority_prob)/sum(self.priority_prob))
+        minibatch = [ self.memory.q[i] for i in minibatch]
         coin_toss = random.random() < 0.5
         if coin_toss:
             for state, action, reward, next_state, done in minibatch:
@@ -115,7 +140,7 @@ class MyQueue:
         return len(self.q)
 
 
-def test(env, agent, len = 10):
+def test(env, agent, len = 1):
     average = 0
     for e in range(len):
         ob = Util.preprocess(env.reset())
@@ -143,7 +168,7 @@ def test(env, agent, len = 10):
     print("Average test Score = ", average)
     return average
 
-file_name = 'pacman'
+file_name = 'prioritized_pacman'
 
 EPISODES = 1000000
 eVSs = deque(maxlen=1000)
@@ -152,7 +177,7 @@ state_size = env.observation_space.shape[0]
 action_size = env.action_space.n
 agent = DeepQAgent(state_size, action_size)
 frame_count = -1
-agent.load(file_name)
+# agent.load(file_name)
 done = False
 batch_size = 32
 recent_average = deque(maxlen=10)
