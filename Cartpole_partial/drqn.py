@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from keras import backend as K, optimizers
 
 EPISODES = 1000
-time_lstm = 3
+time_lstm = 2
 
 
 def plot(data):
@@ -156,7 +156,7 @@ if __name__ == "__main__":
             act_frame.append(state)
             c += 1
 
-            env.render()
+            # env.render()
             if len(act_frame) == time_lstm:
                 action = agent.act(reshape_frames(act_frame))
             else:
