@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 EPISODES = 1000
-time_lstm = 2
+time_lstm = 10
 
 
 def plot(data):
@@ -74,18 +74,20 @@ class DeepQAgent:
         sample_episodes = np.random.randint(0, high=len(self.memory), size = batch_size)
         minibatch = []
         for i in sample_episodes:
-            start = np.random.randint(0, high=len(self.memory.q[i])-2*time_lstm) # might be buggy
+            if len(self.memory.q[i]) < time_lstm + 1:
+                continue
+            start = np.random.randint(time_lstm+1, high=len(self.memory.q[i]) + 1) # pick the end
             state_a = []
             # print("Episode selected = ", i)
             # print("Frame selected = ", start, " / ", len(self.memory.q[i]))
-            for j in range(start, start+time_lstm):
+            for j in range(start-time_lstm-1, start-1):
                 state_a.append(self.memory.q[i][j][0])
-            act_taken = self.memory.q[i][start + time_lstm - 1 ][1]
-            reward_got = self.memory.q[i][start + time_lstm - 1][2]
+            act_taken = self.memory.q[i][start-1][1]
+            reward_got = self.memory.q[i][start-1][2]
             next_state_reached = []
-            for j in range(start + time_lstm, start + time_lstm + time_lstm):
+            for j in range(start-time_lstm, start):
                 next_state_reached.append(self.memory.q[i][j][0])
-            done = self.memory.q[i][start + 2*time_lstm - 1][4]
+            done = self.memory.q[i][start-1][4]
             minibatch.append((reshape_frames(state_a), act_taken, reward_got, reshape_frames(next_state_reached), done))
 
         # minibatch = random.sample(self.memory, batch_size)
@@ -129,8 +131,8 @@ a = a.reshape(1, 10, 4)
 def reshape_frames(l):
     state_size = 4
     l = list(l)
-    return np.array(l).reshape(1,time_lstm, state_size)
-
+    l = np.array(l).reshape(1,time_lstm, state_size)
+    return l
 
 # todo what's all that about resetting the weights of the lstm?
 
@@ -193,5 +195,5 @@ if __name__ == "__main__":
         if e % 10 == 0:
             plot(eVSs)
 
-        if e % 50:
-            agent.save('drqn_regular')
+        if e % 50 == 0:
+            agent.save('drqn_general')
