@@ -28,7 +28,7 @@ class MyQueue:
         self.max_len = maxlen
 
     def add(self, element):
-        if len(self.q) == 200000:
+        if len(self.q) == 1000:
             self.q = self.q[1:] + [element]
         else:
             self.q.append(element)
@@ -45,7 +45,7 @@ class DeepQAgent:
     def __init__(self, state_size, action_size):
         self.state_size = state_size
         self.action_size = action_size
-        self.memory = deque(maxlen=2000)
+        self.memory = MyQueue(maxlen=2000)
         self.gamma = 0.95
         self.epsilon = 1.0
         self.epsilon_min = 0.01
@@ -63,7 +63,7 @@ class DeepQAgent:
         return model
 
     def remember(self, episode_frame):
-        self.memory.append(episode_frame)
+        self.memory.add(episode_frame)
 
     def act(self, state):
         if np.random.rand() <= self.epsilon:
@@ -73,8 +73,23 @@ class DeepQAgent:
 
     def replay(self, batch_size, agent2):
         sample_episodes = np.random.randint(0, high=len(self.memory), size = batch_size)
+        minibatch = []
+        for i in sample_episodes:
+            start = np.random.randint(0, high=len(self.memory.q[i])-2*time_lstm) # might be buggy
+            state_a = []
+            # print("Episode selected = ", i)
+            # print("Frame selected = ", start, " / ", len(self.memory.q[i]))
+            for j in range(start, start+time_lstm):
+                state_a.append(self.memory.q[i][j][0])
+            act_taken = self.memory.q[i][start + time_lstm - 1 ][1]
+            reward_got = self.memory.q[i][start + time_lstm - 1][2]
+            next_state_reached = []
+            for j in range(start + time_lstm, start + time_lstm + time_lstm):
+                next_state_reached.append(self.memory.q[i][j][0])
+            done = self.memory.q[i][start + 2*time_lstm - 1][4]
+            minibatch.append((reshape_frames(state_a), act_taken, reward_got, reshape_frames(next_state_reached), done))
 
-        minibatch = random.sample(self.memory, batch_size)
+        # minibatch = random.sample(self.memory, batch_size)
         for state, action, reward, next_state, done in minibatch:
             target = reward
             if not done:
@@ -114,13 +129,11 @@ a = a.reshape(1, 10, 4)
 
 def reshape_frames(l):
     state_size = 4
-    ret = [[0 for i in range(state_size)] for j in range(time_lstm) ]
     l = list(l)
-    for i in l:
-        print(l)
     return np.array(l).reshape(1,time_lstm, state_size)
 
 
+# todo what's all that about resetting the weights of the lstm?
 
 if __name__ == "__main__":
     eVSs = deque(maxlen=1000)
@@ -134,16 +147,16 @@ if __name__ == "__main__":
     done = False
     batch_size = 32
     recent_average = deque(maxlen=10)
-    episode_frames =  []
     act_frame = deque(maxlen=time_lstm)
     for e in range(EPISODES):
         state = env.reset()
         total_reward = 0
+        episode_frames = []
         for time in range(500):
             act_frame.append(state)
             c += 1
 
-            # env.render()
+            env.render()
             if len(act_frame) == time_lstm:
                 action = agent.act(reshape_frames(act_frame))
             else:
@@ -167,7 +180,7 @@ if __name__ == "__main__":
                 agent.remember(episode_frames)
 
                 break
-            if len(agent.memory) > batch_size:
+            if len(agent.memory) > 5:
                 agent.replay(batch_size, agent2)
 
             if c > 500:
