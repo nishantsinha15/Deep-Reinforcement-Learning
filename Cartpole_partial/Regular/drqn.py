@@ -7,7 +7,6 @@ from keras.layers import Dense, LSTM
 from keras.optimizers import sgd, Adam
 import matplotlib.pyplot as plt
 
-from keras import backend as K, optimizers
 
 EPISODES = 1000
 time_lstm = 2
@@ -20,7 +19,7 @@ def plot(data):
         x.append(i)
         y.append(j)
     plt.plot(x, y)
-    plt.savefig('cartpole_240.png')
+    plt.savefig('drqn.png')
 
 class MyQueue:
     def __init__(self, maxlen):

@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb57761a-9d3b-4b21-a843-dcb7abcd0774" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_240.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cartpole_partial/cartpole_240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cartpole_partial/cartpole_ddqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_ddqn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cartpole_partial/cartpole_dqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_dqn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cartpole_partial/drqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartpole_partial/POMDP/DQN.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cartpole_partial/POMDP/DQN.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartpole_partial/POMDP/dqn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartpole_partial/POMDP/partial_cartpole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,11 +41,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="drqn.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="DQN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Cartpole_partial/POMDP/DQN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+            <state relative-caret-position="399">
+              <caret line="109" column="47" lean-forward="true" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -125,6 +137,7 @@
         <option value="$PROJECT_DIR$/Cartpole DQN/cartpole_dqn.py" />
         <option value="$PROJECT_DIR$/Cartpole_partial/cartpole_dqn.py" />
         <option value="$PROJECT_DIR$/Cartpole_partial/drqn.py" />
+        <option value="$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py" />
         <option value="$PROJECT_DIR$/Cartpole_partial/POMDP/DQN.py" />
       </list>
     </option>
@@ -158,6 +171,11 @@
             <path>
               <item name="Reinforcement-Learning-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="Reinforcement-Learning-Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reinforcement-Learning-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reinforcement-Learning-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Cartpole DQN" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Reinforcement-Learning-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -196,6 +214,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Cartpole_partial/Regular" />
       <recent name="$PROJECT_DIR$/Cartpole_partial" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -205,6 +224,117 @@
       <recent name="$PROJECT_DIR$/Cartpole DQN/chart_model" />
       <recent name="$PROJECT_DIR$/Cartpole DQN" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Cartpole_partial/POMDP/dqn</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/Cartpole_partial/POMDP/partial_cartpole.png</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -524,7 +654,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543614850088</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Partial Cartpole using dqn">
+      <created>1543615954153</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1543615954153</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Partial Cartpole using dqn">
+      <created>1543615963265</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1543615963265</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -534,11 +678,11 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5005208" side_tool="true" weight="0.33439153" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.31428573" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" weight="0.31428573" />
+      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.32910052" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.549763" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13177083" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13177083" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32910052" />
@@ -607,15 +751,15 @@
     <MESSAGE value="basic framework for solving cartpole using LSTM" />
     <MESSAGE value="Solving cartpole using lstm." />
     <MESSAGE value="Updated the time_)step for lstm unrolling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated the time_)step for lstm unrolling" />
+    <MESSAGE value="Partial Cartpole using dqn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Partial Cartpole using dqn" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MS-Pacman/Testing.py" />
     <entry file="file://$PROJECT_DIR$/cartpole_dqn.png" />
     <entry file="file://$PROJECT_DIR$/Cartpole DQN/cartpole.png" />
     <entry file="file://$PROJECT_DIR$/BreakOut/breakOut.png" />
@@ -804,15 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartPole_ddqn.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_dqn_huber_loss.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_dqn_target_network.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_original.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -833,19 +968,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_240.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_ddqn.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -853,9 +975,12 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_240.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/cartpole_dqn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="930">
           <caret line="62" column="58" lean-forward="true" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -863,10 +988,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartPole_ddqn.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_dqn_huber_loss.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_dqn_target_network.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole_partial/Regular/drqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole_partial/POMDP/cart_velocity.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Cartpole_partial/POMDP/DQN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="90" column="31" lean-forward="true" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+        <state relative-caret-position="399">
+          <caret line="109" column="47" lean-forward="true" selection-start-line="109" selection-start-column="47" selection-end-line="109" selection-end-column="47" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

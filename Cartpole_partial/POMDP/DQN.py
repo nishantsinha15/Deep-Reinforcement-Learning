@@ -18,7 +18,7 @@ def plot(data):
         x.append(i)
         y.append(j)
     plt.plot(x, y)
-    plt.savefig('partial_cartpole.png')
+    plt.savefig('cart_velocity.png')
 
 
 class DeepQAgent:
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             next_state, reward, done, _ = env.step(action)
 
             # remove velocity
-            next_state = [next_state[0], next_state[1], next_state[2]]
+            next_state = [next_state[0], next_state[2], next_state[3]]
 
             total_reward += reward
             reward = reward if not done else -10
@@ -125,4 +125,4 @@ if __name__ == "__main__":
             plot(eVSs)
 
         if e % 50 == 0:
-            agent.save('dqn')
+            agent.save('cart_velocity')
