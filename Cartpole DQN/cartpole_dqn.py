@@ -37,7 +37,7 @@ def plot(data):
         x.append(i)
         y.append(j)
     plt.plot(x, y)
-    plt.savefig('cartpole_dqn_huber_loss.png')
+    plt.savefig('cartpole_dqn_huber_loss_retry.png')
 
 
 
@@ -111,7 +111,7 @@ if __name__ == "__main__":
         total_reward = 0
         for time in range(500):
             c += 1
-            env.render()
+            # env.render()
             action = agent.act(state)
             next_state, reward, done, _ = env.step(action)
             total_reward += reward
