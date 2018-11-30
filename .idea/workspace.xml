@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="eb57761a-9d3b-4b21-a843-dcb7abcd0774" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Pacman_final/Game.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman_final/Pacman.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman_final/Test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman_final/Util.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman_final/pacmanbehaviour" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman_final/pacmantarget" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pacman_final/test_results.pkl" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$demo_Cart_Pole.coverage" NAME="demo_Cart_Pole Coverage Results" MODIFIED="1542204119340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$TutCartPole.coverage" NAME="TutCartPole Coverage Results" MODIFIED="1540748905256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$CartPole.coverage" NAME="CartPole Coverage Results" MODIFIED="1540790668916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$train_Cart_Pole.coverage" NAME="train_Cart_Pole Coverage Results" MODIFIED="1542981152432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$Test.coverage" NAME="Test Coverage Results" MODIFIED="1543582505068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Pacman_final" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$breakout_ddqn.coverage" NAME="breakout_ddqn Coverage Results" MODIFIED="1543135848718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BreakOut" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$BreakOut_stacked_frames.coverage" NAME="BreakOut_stacked_frames Coverage Results" MODIFIED="1543144877625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BreakOut" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$cartpole_dqn.coverage" NAME="cartpole_dqn Coverage Results" MODIFIED="1542983815883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Cartpole DQN" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$Game.coverage" NAME="Game Coverage Results" MODIFIED="1543295855345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Pacman_final" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$BreakOut_pixel.coverage" NAME="BreakOut_pixel Coverage Results" MODIFIED="1543144527456" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/BreakOut" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$cartpole_ddqn.coverage" NAME="cartpole_ddqn Coverage Results" MODIFIED="1542981491258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Cartpole DQN" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$Random_pacman.coverage" NAME="Random_pacman Coverage Results" MODIFIED="1543584297399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Pacman_final" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$dqn.coverage" NAME="dqn Coverage Results" MODIFIED="1543257885138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MS-Pacman" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$Testing.coverage" NAME="Testing Coverage Results" MODIFIED="1538922395441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$BreakOut.coverage" NAME="BreakOut Coverage Results" MODIFIED="1543144118922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reinforcement_Learning_Project$Test__1_.coverage" NAME="Test (1) Coverage Results" MODIFIED="1543578788788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Prioritized_Pacman" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="DDQN.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Limited_FrozenLake/DDQN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="40" selection-start-line="40" selection-end-line="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>state</find>
+      <find>fit</find>
+      <find>save</find>
+      <find>targe</find>
+      <find>update</find>
+      <find>start</find>
+      <find>brea</find>
+      <find>state_size</find>
+      <find>print</find>
+      <find>max_score</find>
+      <find>.get_input_layer()</find>
+      <find>Ut</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Testing.py" />
+        <option value="$PROJECT_DIR$/TutCartPole.py" />
+        <option value="$PROJECT_DIR$/CartPole.py" />
+        <option value="$PROJECT_DIR$/demo_Cart_Pole.py" />
+        <option value="$PROJECT_DIR$/train_Cart_Pole.py" />
+        <option value="$PROJECT_DIR$/ddqn.py" />
+        <option value="$PROJECT_DIR$/BreakOut.py" />
+        <option value="$PROJECT_DIR$/breakout_random.py" />
+        <option value="$PROJECT_DIR$/Cartpole DQN/train_Cart_Pole.py" />
+        <option value="$PROJECT_DIR$/Cartpole DQN/cartpole_ddqn.py" />
+        <option value="$PROJECT_DIR$/Cartpole DQN/cartpole_dqn.py" />
+        <option value="$PROJECT_DIR$/BreakOut/breakout_ddqn.py" />
+        <option value="$PROJECT_DIR$/BreakOut/BreakOut.py" />
+        <option value="$PROJECT_DIR$/BreakOut/BreakOut_pixel.py" />
+        <option value="$PROJECT_DIR$/BreakOut/BreakOut_stacked_frames.py" />
+        <option value="$PROJECT_DIR$/MS-Pacman/Doubble_deep_q_learning.py" />
+        <option value="$PROJECT_DIR$/MS-Pacman/Double_deep_q_learning.py" />
+        <option value="$PROJECT_DIR$/Pacman_Final.py" />
+        <option value="$PROJECT_DIR$/MS-Pacman/dqn.py" />
+        <option value="$PROJECT_DIR$/Pacman_final/Double_q_network.py" />
+        <option value="$PROJECT_DIR$/Pacman_final/Util.py" />
+        <option value="$PROJECT_DIR$/Prioritized_Pacman/Game.py" />
+        <option value="$PROJECT_DIR$/Prioritized_Pacman/Prioritized_Game.py" />
+        <option value="$PROJECT_DIR$/Random_pacman.py" />
+        <option value="$PROJECT_DIR$/Prioritized_Pacman/Test.py" />
+        <option value="$PROJECT_DIR$/Pacman_final/Game.py" />
+        <option value="$PROJECT_DIR$/Pacman_final/Test.py" />
+        <option value="$PROJECT_DIR$/Pacman_final/Random_pacman.py" />
+        <option value="$PROJECT_DIR$/Limited_FrozenLake.py" />
+        <option value="$PROJECT_DIR$/Limited_FrozenLake/DDQN.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="960" />
+    <option name="y" value="25" />
+    <option name="width" value="960" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Reinforcement-Learning-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reinforcement-Learning-Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Reinforcement-Learning-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reinforcement-Learning-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="Limited_FrozenLake" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Artificial Intelligence/Project/Artificial-Intelligence-Course-Project" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Pacman_final" />
+      <recent name="$PROJECT_DIR$/BreakOut/chart_model" />
+      <recent name="$PROJECT_DIR$/Cartpole DQN/chart_model" />
+      <recent name="$PROJECT_DIR$/Cartpole DQN" />
+      <recent name="$PROJECT_DIR$/BreakOut" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.Random_pacman">
+    <configuration name="Game" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Reinforcement-Learning-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Pacman_final" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pacman_final/Game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Random_pacman" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Reinforcement-Learning-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Pacman_final" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pacman_final/Random_pacman.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Reinforcement-Learning-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Prioritized_Pacman" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Prioritized_Pacman/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Reinforcement-Learning-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Pacman_final" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Pacman_final/Test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="dqn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Reinforcement-Learning-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MS-Pacman" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MS-Pacman/dqn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.dqn" />
+      <item itemvalue="Python.Game" />
+      <item itemvalue="Python.Test" />
+      <item itemvalue="Python.Random_pacman" />
+      <item itemvalue="Python.Test (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.Random_pacman" />
+        <item itemvalue="Python.Test" />
+        <item itemvalue="Python.Test (1)" />
+        <item itemvalue="Python.Game" />
+        <item itemvalue="Python.dqn" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb57761a-9d3b-4b21-a843-dcb7abcd0774" name="Default" comment="" />
+      <created>1537812536263</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1537812536263</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Pre-processed the image for mid demo.">
+      <created>1538164252142</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1538164252142</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Exploring the environment">
+      <created>1538203906661</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1538203906661</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Exploring the environment">
+      <created>1539686601641</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1539686601641</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cartpole problem solved using deep q learning.">
+      <created>1540790543144</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1540790543144</updated>
+    </task>
+    <task id="LOCAL-00005" summary="IDK. Random bakhchodi.">
+      <created>1540894315759</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1540894315759</updated>
+    </task>
+    <task id="LOCAL-00006" summary="First Commit. InitiaLIZED WITH dqn">
+      <created>1542987554401</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1542987554401</updated>
+    </task>
+    <task id="LOCAL-00007" summary="First Commit. InitiaLIZED WITH dqn">
+      <created>1542987750306</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1542987750306</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added a CNNto my model">
+      <created>1543011430880</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543011430880</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Stacked 4 frames together as a state. I hope so">
+      <created>1543082143011</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1543082143011</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Commited ddqn pacman. Testing">
+      <created>1543129264456</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1543129264459</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Updated a little bit for training on server">
+      <created>1543135581566</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1543135581566</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updsated code.">
+      <created>1543147291710</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1543147291710</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Will now display computing speed">
+      <created>1543147892377</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1543147892377</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Will show time taken">
+      <created>1543148865108</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1543148865108</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Backup commit. There is going to be a lot of changes after this">
+      <created>1543266450991</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1543266450991</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Several updates following the codin style of https://github.com/danielegrattarola/deep-q-atari.git">
+      <created>1543272217507</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1543272217507</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Created a testing system every 10000 frames">
+      <created>1543273318089</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1543273318089</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Corrected dimensional error">
+      <created>1543274137609</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1543274137609</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Squashed some minor bugs">
+      <created>1543274391593</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1543274391593</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added a test file">
+      <created>1543307594264</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1543307594268</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Added a test file and recreated the Util file">
+      <created>1543307977890</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1543307977891</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="960" y="25" width="960" height="1055" extended-state="4" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5005208" side_tool="true" weight="0.33439153" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.33439153" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.549763" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.334375" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.28696924" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.33439153" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1671875" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5005208" side_tool="true" weight="0.33439153" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.28696924" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.549763" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Pre-processed the image for mid demo." />
+    <MESSAGE value="Exploring the environment" />
+    <MESSAGE value="Cartpole problem solved using deep q learning." />
+    <MESSAGE value="IDK. Random bakhchodi." />
+    <MESSAGE value="First Commit. InitiaLIZED WITH dqn" />
+    <MESSAGE value="Added a CNNto my model" />
+    <MESSAGE value="Stacked 4 frames together as a state. I hope so" />
+    <MESSAGE value="Commited ddqn pacman. Testing" />
+    <MESSAGE value="Updated a little bit for training on server" />
+    <MESSAGE value="Updsated code." />
+    <MESSAGE value="Will now display computing speed" />
+    <MESSAGE value="Will show time taken" />
+    <MESSAGE value="Backup commit. There is going to be a lot of changes after this" />
+    <MESSAGE value="Several updates following the codin style of https://github.com/danielegrattarola/deep-q-atari.git" />
+    <MESSAGE value="Created a testing system every 10000 frames" />
+    <MESSAGE value="Corrected dimensional error" />
+    <MESSAGE value="Squashed some minor bugs" />
+    <MESSAGE value="Added a test file" />
+    <MESSAGE value="Added a test file and recreated the Util file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a test file and recreated the Util file" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Init.png" />
+    <entry file="file://$PROJECT_DIR$/CartPole.py" />
+    <entry file="file://$PROJECT_DIR$/TutCartPole.py" />
+    <entry file="file://$PROJECT_DIR$/Testing.py" />
+    <entry file="file://$PROJECT_DIR$/train_Cart_Pole.py" />
+    <entry file="file://$PROJECT_DIR$/demo_Cart_Pole.py" />
+    <entry file="file://$PROJECT_DIR$/ddqn.py" />
+    <entry file="file://$PROJECT_DIR$/breakout_random.py" />
+    <entry file="file://$PROJECT_DIR$/MS-Pacman/Testing.py" />
+    <entry file="file://$PROJECT_DIR$/cartpole_dqn.png" />
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/cartpole.png" />
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartPole_ddqn.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_original.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_dqn_target_network.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/breakOut.png" />
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/cartpole_dqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-231">
+          <caret line="96" column="33" lean-forward="true" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/chart_model/cartpole_dqn_huber_loss.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/cartpole_ddqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1011">
+          <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cartpole DQN/train_Cart_Pole.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="104" column="37" lean-forward="true" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/chart_model/breakout.png" />
+    <entry file="file://$PROJECT_DIR$/BreakOut/breakout_ddqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="203" lean-forward="true" selection-start-line="203" selection-end-line="203" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/PycharmProjects/untitled/venv/lib/python3.6/site-packages/tensorflow/python/pywrap_tensorflow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="39" column="32" lean-forward="true" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/BreakOut.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="117" column="22" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/chart_model/single_frame_breakout.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/BreakOut_stacked_frames.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="91" column="48" lean-forward="true" selection-start-line="91" selection-start-column="48" selection-end-line="91" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/breakout_stacked.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/BreakOut_pixel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="63" column="35" selection-start-line="63" selection-start-column="35" selection-end-line="63" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BreakOut/breakout.png" />
+    <entry file="file://$PROJECT_DIR$/MS-Pacman/pacman_dqn_v1.png" />
+    <entry file="file://$USER_HOME$/PycharmProjects/untitled/venv/lib/python3.6/site-packages/tensorflow/python/client/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="1452" column="44" lean-forward="true" selection-start-line="1452" selection-start-column="44" selection-end-line="1452" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MS-Pacman/pacman_ddqn_v1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MS-Pacman/Doubble_deep_q_learning.py" />
+    <entry file="file://$PROJECT_DIR$/Pacman_Final.py" />
+    <entry file="file://$PROJECT_DIR$/MS-Pacman/Double_deep_q_learning.py" />
+    <entry file="file://$PROJECT_DIR$/MS-Pacman/dqn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="42" selection-start-line="42" selection-end-line="49" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pacman_final/Double_q_network.py" />
+    <entry file="file://$PROJECT_DIR$/Pacman_final/Util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prioritized_Pacman/Util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prioritized_Pacman/Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="168" column="30" lean-forward="true" selection-start-line="168" selection-start-column="30" selection-end-line="168" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prioritized_Pacman/Prioritized_Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prioritized_Pacman/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="605">
+          <caret line="144" column="21" selection-start-line="144" selection-start-column="16" selection-end-line="144" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pacman_final/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRQN/Random_pacman.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRQN/Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2895">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRQN/Util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DRQN/Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pacman_final/Random_pacman.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pacman_final/Random_pacman.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Limited_FrozenLake.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pacman_final/Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Limited_FrozenLake/DDQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
