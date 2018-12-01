@@ -19,7 +19,7 @@ def plot(data):
         x.append(i)
         y.append(j)
     plt.plot(x, y)
-    plt.savefig('drqn.png')
+    plt.savefig('drqn_limited.png')
 
 class MyQueue:
     def __init__(self, maxlen):
@@ -198,4 +198,4 @@ if __name__ == "__main__":
             plot(eVSs)
 
         if e % 50 == 0:
-            agent.save('drqn_general')
+            agent.save('drqn_limited')

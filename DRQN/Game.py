@@ -4,7 +4,7 @@ import gym
 import numpy as np
 from collections import deque
 from keras.models import Sequential
-from keras.layers import Dense
+from keras.layers import Dense, TimeDistributed, LSTM
 from keras.optimizers import sgd, Adam
 import matplotlib.pyplot as plt
 from keras.layers import Dense, Conv2D, Flatten
@@ -29,14 +29,14 @@ class DeepQAgent:
 
     def _build_model(self, input_shape):
         model = Sequential()
-        model.add(Conv2D(32, 8, strides=(4,4), padding='valid', activation='relu', input_shape=input_shape, data_format='channels_first'))
-        model.add(Conv2D(64, 4, strides=(2,2), padding='valid', activation='relu', data_format='channels_first'))
-        model.add(Conv2D(64, 3, strides=(1,1), padding='valid', activation='relu', data_format='channels_first'))
-        model.add(Flatten())
-        model.add(Dense(512, activation='relu'))
+        model.add(TimeDistributed(Conv2D(32, 8, strides=(4,4), padding='valid', activation='relu', input_shape=(10, 84, 110, 1))))
+        model.add(TimeDistributed(Conv2D(64, 4, strides=(2,2), padding='valid', activation='relu', data_format='channels_first')))
+        model.add(TimeDistributed(Conv2D(64, 3, strides=(1,1), padding='valid', activation='relu', data_format='channels_first')))
+        model.add(TimeDistributed(Flatten()))
+        model.add(LSTM(512))
+        model.add(Dense(128, activation='relu'))
         model.add(Dense(self.action_size))
         rmsprop = optimizers.RMSprop(lr=self.learning_rate)
-
         model.compile(loss='mean_squared_error', optimizer = rmsprop, metrics=['accuracy'])
         return model
 

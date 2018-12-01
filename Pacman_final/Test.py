@@ -126,22 +126,22 @@ def test(env, agent, leng=10):
     prev = deque(maxlen= 10)
     for e in range(leng):
         env.reset()
-        # ob = Util.preprocess(env.reset())
-        # curr_state = np.array([ob, ob, ob, ob])
+        ob = Util.preprocess(env.reset())
+        curr_state = np.array([ob, ob, ob, ob])
         total_reward = 0
         start_time = time.time()
         for iter in range(1000000):
             # env.render()
 
             # Select the action
-            # action = agent.act(np.asarray([curr_state]), testing=True)
+            action = agent.act(np.asarray([curr_state]), testing=True)
 
             # Take next action and Observe
-            ob, reward, done, _ = env.step(env.action_space.sample())
-            # ob = Util.preprocess(ob)
-            # next_state = Util.get_next_state(curr_state, ob)
+            ob, reward, done, _ = env.step(action)
+            ob = Util.preprocess(ob)
+            next_state = Util.get_next_state(curr_state, ob)
             total_reward += reward
-            # curr_state = next_state
+            curr_state = next_state
             if done:
                 print("Test: {}/{}, score: {}, took = {}"
                       .format(e, leng, total_reward, time.time() - start_time))
@@ -163,4 +163,4 @@ state_size = env.observation_space.shape[0]
 action_size = env.action_space.n
 agent = DeepQAgent(state_size, action_size)
 agent.load(file_name)
-test(env, agent, leng=110)
+test(env, agent, leng=30)

@@ -91,7 +91,8 @@ if __name__ == "__main__":
         for time in range(500):
             c += 1
             # env.render()
-            action = agent.act(state)
+            # action = agent.act(state)
+            action = env.action_space.sample()
             next_state, reward, done, _ = env.step(action)
 
             # remove velocity
@@ -100,7 +101,7 @@ if __name__ == "__main__":
             total_reward += reward
             reward = reward if not done else -10
             next_state = np.reshape(next_state, [1, state_size])
-            agent.remember(state, action, reward, next_state, done)
+            # agent.remember(state, action, reward, next_state, done)
             state = next_state
             if done:
                 print("episode: {}/{}, score: {}, e: {:.2}"
@@ -110,13 +111,13 @@ if __name__ == "__main__":
                 print(" Recent Average = ", av)
                 eVSs.append((e + 1, av))
                 break
-            if len(agent.memory) > batch_size:
-                agent.replay(batch_size, agent2)
+            # if len(agent.memory) > batch_size:
+            #     agent.replay(batch_size, agent2)
 
-            if c > 500:
-                c = 0
-                agent2.model.set_weights(agent.model.get_weights())
-                print("Updated the target model")
+            # if c > 500:
+            #     c = 0
+            #     agent2.model.set_weights(agent.model.get_weights())
+            #     print("Updated the target model")
 
         if agent.epsilon > agent.epsilon_min:
             agent.epsilon *= agent.epsilon_decay
