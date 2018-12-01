@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 EPISODES = 1000
-time_lstm = 2
+time_lstm = 10
 
 
 def plot(data):
@@ -74,7 +74,9 @@ class DeepQAgent:
         sample_episodes = np.random.randint(0, high=len(self.memory), size = batch_size)
         minibatch = []
         for i in sample_episodes:
-            start = np.random.randint(time_lstm, high=len(self.memory.q[i]) + 1) # pick the end
+            if len(self.memory.q[i]) < time_lstm + 1:
+                continue
+            start = np.random.randint(time_lstm+1, high=len(self.memory.q[i]) + 1) # pick the end
             state_a = []
             # print("Episode selected = ", i)
             # print("Frame selected = ", start, " / ", len(self.memory.q[i]))
@@ -127,7 +129,7 @@ a = a.reshape(1, 10, 4)
 '''
 
 def reshape_frames(l):
-    state_size = 4
+    state_size = 2
     l = list(l)
     l = np.array(l).reshape(1,time_lstm, state_size)
     return l
@@ -137,7 +139,7 @@ def reshape_frames(l):
 if __name__ == "__main__":
     eVSs = deque(maxlen=1000)
     env = gym.make('CartPole-v1')
-    state_size = env.observation_space.shape[0]
+    state_size = env.observation_space.shape[0] - 2
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
     agent2 = DeepQAgent(state_size, action_size)
@@ -149,6 +151,7 @@ if __name__ == "__main__":
     act_frame = deque(maxlen=time_lstm)
     for e in range(EPISODES):
         state = env.reset()
+        state = [state[0], state[2]]
         total_reward = 0
         episode_frames = []
         for time in range(500):
@@ -162,6 +165,7 @@ if __name__ == "__main__":
                 action = env.action_space.sample()
 
             next_state, reward, done, _ = env.step(action)
+            next_state = [next_state[0], next_state[2]]
             total_reward += reward
             reward = reward if not done else -10
             episode_frames.append((state, action, reward, next_state, done))
@@ -192,3 +196,6 @@ if __name__ == "__main__":
 
         if e % 10 == 0:
             plot(eVSs)
+
+        if e % 50 == 0:
+            agent.save('drqn_general')

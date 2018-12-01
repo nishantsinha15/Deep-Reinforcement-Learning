@@ -18,7 +18,7 @@ def plot(data):
         x.append(i)
         y.append(j)
     plt.plot(x, y)
-    plt.savefig('cart_velocity.png')
+    plt.savefig('dqn_cart_velocity_at_tip.png')
 
 
 class DeepQAgent:
@@ -71,7 +71,7 @@ class DeepQAgent:
 if __name__ == "__main__":
     eVSs = deque(maxlen=EPISODES)
     env = gym.make('CartPole-v1')
-    state_size = env.observation_space.shape[0] - 1
+    state_size = env.observation_space.shape[0] - 2
     action_size = env.action_space.n
     agent = DeepQAgent(state_size, action_size)
     agent2 = DeepQAgent(state_size, action_size)
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     for e in range(EPISODES):
         state = env.reset()
         # remove velocity
-        state = [state[0], state[2], state[3]]
+        state = [state[0], state[2]]
         state = np.reshape(state, [1, state_size])
         total_reward = 0
         for time in range(500):
@@ -95,7 +95,7 @@ if __name__ == "__main__":
             next_state, reward, done, _ = env.step(action)
 
             # remove velocity
-            next_state = [next_state[0], next_state[2], next_state[3]]
+            next_state = [next_state[0], next_state[2]]
 
             total_reward += reward
             reward = reward if not done else -10
@@ -125,4 +125,4 @@ if __name__ == "__main__":
             plot(eVSs)
 
         if e % 50 == 0:
-            agent.save('cart_velocity')
+            agent.save('dqn_cart_velocity_tip')
