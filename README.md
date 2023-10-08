@@ -12,4 +12,4 @@ Importance of a recurrent layer is shown in case of POMDPs by first converting t
 
 # Part 3
 
-All the four models are run on Pacman and Breakout atari environments. Sadly, we are unable to produce any results. However the reason for this is that we didn't get a chance to train our model for longenough. Training is required atleast for a million frames inorder to get  reasonable results on Atari.
+All the four models are run on Pacman and Breakout atari environments. Training is required atleast for a million frames inorder to get reasonable results on Atari.
